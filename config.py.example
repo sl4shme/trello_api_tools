@@ -1,0 +1,46 @@
+# WSGI Secret
+PRIVATE_KEY = ""
+
+# Authentication
+api_key = ""
+api_secret = ""
+api_token = ""
+
+# Scan limitation
+# Only scan board that matches this regex
+#recurrent_board_regex = "^(WORK)|(PERS): "
+recurrent_board_regex = ""
+
+# Only scan lists that matches this regex
+#recurrent_list_regex = "^Recurrent"
+recurrent_list_regex = ""
+
+# Only scan comments starting with this prefix str or tuple
+#recurrent_prefix = "repeat:"
+recurrent_prefix = ""
+
+
+# Only scan comments starting with this prefix str or tuple
+link_board_regex = ""
+link_list_regex = ""
+#link_prefix = "link:"
+link_prefix = ""
+
+
+# Misc
+log_file = ""
+log_file_wsgi = ""
+log_debug = False
+
+# poll interval in minutes
+poll_interval = 1
+
+
+
+#A valid repeat comment should look as follows:
+#repeat:
+#{
+#    "cron": "0 0 * * 1",
+#    "to_board": "WORK: Main",
+#    "to_list": "INBOX"
+#}
