@@ -37,8 +37,8 @@ def parse_comments(card):
                 valid.append(json.loads(text))
         except:
             pass
-    if len(valid) == 1:
-        return valid[0]
+    if len(valid) > 0:
+        return valid.pop()
     else:
         return None
 

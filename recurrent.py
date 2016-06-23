@@ -61,6 +61,7 @@ class RecurrentTrello():
         logging.getLogger("requests").setLevel(logging.WARNING)
         logging.getLogger("requests_oauthlib").setLevel(logging.WARNING)
         logging.getLogger("oauthlib").setLevel(logging.WARNING)
+        logging.getLogger("urllib3").setLevel(logging.WARNING)
         logging.getLogger("apscheduler").setLevel(logging.INFO)
         self.client = trello.TrelloClient(api_key=self.api_key,
                                           api_secret=self.api_secret,
