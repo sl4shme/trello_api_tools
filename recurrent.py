@@ -17,6 +17,7 @@ class Recurrent_job():
         self.create()
 
     def execute(self):
+        print("Exec: {}".format(self.doc['card_name']))
         try:
             dest_board = [i for i in self.client.list_boards()
                           if i.name == self.doc['to_board']][0]
@@ -25,7 +26,7 @@ class Recurrent_job():
                             self.doc['to_board']))
         try:
             dest_list = [i for i in dest_board.all_lists()
-                         if i.name == self.doc['to_list']][0]
+                         if self.doc['to_list'] in i.name][0]
         except:
             raise Exception("Could not find destination list {}".format(
                             self.doc['to_list']))
@@ -70,6 +71,7 @@ class RecurrentTrello():
         self.jobs = {}
         self.scheduler.add_job(self.parse_all_comments, 'interval',
                                 id='trello_poll', minutes=self.poll_interval)
+        print("start")
         self.scheduler.start()
 
     def load_config(self):
@@ -87,6 +89,7 @@ class RecurrentTrello():
         self.log_debug = config.log_debug
 
     def parse_all_comments(self):
+        print("Exec parse_all_comments")
         recurrents = []
         for board in self.client.list_boards():
             if board.closed:
